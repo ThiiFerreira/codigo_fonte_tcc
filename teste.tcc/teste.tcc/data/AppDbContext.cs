@@ -22,6 +22,7 @@ namespace teste.tcc.data
         public DbSet<Responsavel> Responsavel { get; set; }
         public DbSet<UserResponsavel> UserResponsavel { get; set; }
         public DbSet<Idoso> Idoso { get; set; }
+        public DbSet<Tarefa> Tarefa { get; set; }
 
     }
 }

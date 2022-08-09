@@ -35,6 +35,7 @@ namespace teste.tcc
             services.AddScoped<ResponsavelService, ResponsavelService>();
             services.AddScoped<UserResponsavelService,UserResponsavelService >();
             services.AddScoped<IdosoService, IdosoService> ();
+            services.AddScoped<TarefaService, TarefaService> ();
 
             services.AddCors();
             services.AddSwaggerGen(c =>
