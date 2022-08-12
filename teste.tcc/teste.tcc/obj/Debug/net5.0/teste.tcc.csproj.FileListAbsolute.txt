@@ -43,8 +43,6 @@ C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Micro
 C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Npgsql.dll
-C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\BouncyCastle.Crypto.dll
 C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Google.Protobuf.dll
@@ -63,3 +61,14 @@ C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Micro
 C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
 C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\MySqlConnector.dll
+C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\teste.tcc\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll

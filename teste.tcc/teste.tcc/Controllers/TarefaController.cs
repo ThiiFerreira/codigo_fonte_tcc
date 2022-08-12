@@ -1,4 +1,5 @@
 ﻿using FluentResults;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace teste.tcc.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public IActionResult AdicionaTarefa([FromBody] CreateTarefaDto createTarefaDto)
         {
             ReadTarefaDto readTarefaDto = _tarefaService.AdicionaTarefa(createTarefaDto);
