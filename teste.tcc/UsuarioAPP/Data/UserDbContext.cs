@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
+using UsuariosApi.Models;
 
 namespace UsuariosApi.Data
 {
@@ -38,13 +39,18 @@ namespace UsuariosApi.Data
             );
 
             builder.Entity<IdentityRole<int>>().HasData(
-                    new IdentityRole<int> { Id = 9997, Name = "regular", NormalizedName = "REGULAR" }
+                    new IdentityRole<int> { Id = 9997, Name = "responsavel", NormalizedName = "RESPONSAVEL" }
+            );
+            builder.Entity<IdentityRole<int>>().HasData(
+                    new IdentityRole<int> { Id = 9996, Name = "idoso", NormalizedName = "IDOSO" }
             );
 
             builder.Entity<IdentityUserRole<int>>().HasData(
                 new IdentityUserRole<int> { RoleId = 9999, UserId = 9999 }
                 );
         }
+
+        public DbSet<Usuario> Usuario { get; set; }
 
     }
 }

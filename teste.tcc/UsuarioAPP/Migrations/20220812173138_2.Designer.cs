@@ -9,8 +9,8 @@ using UsuariosApi.Data;
 namespace UsuarioAPP.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20220811150039_usuario admin")]
-    partial class usuarioadmin
+    [Migration("20220812173138_2")]
+    partial class _2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,9 +49,23 @@ namespace UsuarioAPP.Migrations
                         new
                         {
                             Id = 9999,
-                            ConcurrencyStamp = "27901fc2-46fc-4ba9-adf3-b13ad0b3248e",
+                            ConcurrencyStamp = "cba2a17b-06ba-4d2a-9643-f3c5f4b18344",
                             Name = "admin",
                             NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = 9997,
+                            ConcurrencyStamp = "608089e6-45bc-44c6-8a2a-55509be72d85",
+                            Name = "responsavel",
+                            NormalizedName = "RESPONSAVEL"
+                        },
+                        new
+                        {
+                            Id = 9996,
+                            ConcurrencyStamp = "ce6f2051-b461-453d-a091-731e6601098e",
+                            Name = "idoso",
+                            NormalizedName = "IDOSO"
                         });
                 });
 
@@ -146,15 +160,15 @@ namespace UsuarioAPP.Migrations
                         {
                             Id = 9999,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "110ca172-ae53-4f78-b1ff-5b0234efed05",
+                            ConcurrencyStamp = "cb685408-241c-4a6a-a459-ef6f78adb15e",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPH6yeYJe0MBqn8Q6h6TKP3p6coQTVLbkAhcq75UrNMqySTRA4fTGDw/qgTaw5gHgw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGwqycDBNYd+1GhFpQ/FrC/YfGGIWsgOooud9YbEn5U6K7AS1hT26hMWHgXeuzvmHQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ed1dd348-3120-47c1-b640-edf673a6ca05",
+                            SecurityStamp = "c8d71739-038b-47d0-bdbf-8b11b074138b",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -242,6 +256,38 @@ namespace UsuarioAPP.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("UsuariosApi.Models.Usuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Cpf")
+                        .HasColumnType("text");
+
+                    b.Property<string>("DataNascimento")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Endereco")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Telefone")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuario");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

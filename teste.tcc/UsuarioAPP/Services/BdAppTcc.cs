@@ -3,43 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Data;
+using FluentResults;
 
 namespace UsuarioAPP.Services
 {
     // criar logica para conexao como banco de dados e consultas
     public class BdAppTcc
     {
-        MySqlConnection conexao = new MySqlConnection("server=localhost;database=BdappTcc;user=root;password=");
-        MySqlCommand comando;
-        MySqlDataAdapter da;
-        MySqlDataReader dr;
-        string strSQl;
-
-
-        public bool verificaResposnavel(int resonsavelId)
+        private MySqlConnection bdConn = new MySqlConnection("server=localhost;database=bdapptcc;user=root;password=");//MySQL
+        
+        public Result verificaResposnavel(int responsavelId)
         {
             try
             {
-                strSQl = "select * from responsavel where id = @ID";
-                comando = new MySqlCommand(strSQl, conexao);
-                comando.Parameters.AddWithValue("@ID", resonsavelId.ToString());
-                conexao.Open();
-                comando.Prepare();
-                dr = comando.ExecuteReader();
+                bdConn.Open();
+                if (bdConn.State != ConnectionState.Open) return Result.Fail("Falha ao abrir conexão");
 
-                var sla = dr.Read().ToString();
-                return true;
-                    
-            }catch(Exception e)
+                MySqlCommand commS = new MySqlCommand($"select * from responsavel where id ={responsavelId}", bdConn);
+                var select = commS.ExecuteReader();
+                select.Read();
+                Console.WriteLine(select.HasRows);
+                if (select.HasRows) return Result.Ok();
+                return Result.Fail("Responsavel não encontrado para criação de usuario");
+
+            }
+            catch (Exception e)
             {
-                return true;
+                return Result.Fail("Falha na conexão com o banco de dados" + e.Message);
             }
             finally
             {
-                conexao.Close();
-                conexao = null;
-                comando = null;
+                bdConn.Close();
             }
+            
         }
     }
 }

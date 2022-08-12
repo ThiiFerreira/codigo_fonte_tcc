@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.32413.511
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "teste.tcc", "teste.tcc\teste.tcc.csproj", "{78D61EFC-6179-4266-AAB9-97AB1BB2B8DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsuarioAPP", "UsuarioAPP\UsuarioAPP.csproj", "{8806E2AB-73A9-404E-BFC3-01A9837E50E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APP", "UsuarioAPP\APP.csproj", "{8806E2AB-73A9-404E-BFC3-01A9837E50E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

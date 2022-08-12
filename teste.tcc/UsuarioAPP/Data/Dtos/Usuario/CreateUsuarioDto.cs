@@ -20,7 +20,19 @@ namespace UsuariosApi.Data.Dtos.Usuario
         [Compare("Password")]
         public string RePassword { get; set; }
 
-        //public int ResonsavelId { get; set; }
+        [Required]
+        public string Nome { get; set; }
+
+        [Required]
+        public string Cpf { get; set; }
+
+        [Required]
+        public string DataNascimento { get; set; }
+
+        public string Telefone { get; set; }
+
+        [Required]
+        public string Endereco { get; set; }
 
     }
 }

@@ -9,8 +9,8 @@ using UsuariosApi.Data;
 namespace UsuarioAPP.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20220811151211_usuario regular")]
-    partial class usuarioregular
+    [Migration("20220812172947_1")]
+    partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,16 +49,23 @@ namespace UsuarioAPP.Migrations
                         new
                         {
                             Id = 9999,
-                            ConcurrencyStamp = "d8ea390b-7aef-40d3-acc0-6a8665a3c574",
+                            ConcurrencyStamp = "b120e8ba-6fe2-4bf7-9634-f3c2d1917f37",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = 9997,
-                            ConcurrencyStamp = "dd9fd79c-0c8b-4dfc-9a0d-005a6aa71b94",
-                            Name = "regular",
-                            NormalizedName = "REGULAR"
+                            ConcurrencyStamp = "063dab63-306f-43dd-abfd-3b49d2d0615e",
+                            Name = "responsavel",
+                            NormalizedName = "RESPONSAVEL"
+                        },
+                        new
+                        {
+                            Id = 9996,
+                            ConcurrencyStamp = "4a1d306d-3221-4b2d-80e5-3af973881ceb",
+                            Name = "idoso",
+                            NormalizedName = "IDOSO"
                         });
                 });
 
@@ -153,15 +160,15 @@ namespace UsuarioAPP.Migrations
                         {
                             Id = 9999,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "04b676ea-2487-4c9d-b465-0b7aa5434383",
+                            ConcurrencyStamp = "3be30a0f-1e1b-4626-b6d3-8b2fa7e17817",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEL3GGEKUvin1zGhNnlRVOltdb+xSyGZdboRV/Vw3hsylGyFnS/TyIeHZdtsdtzTb2g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEG3Rgm1OQqWbvg8pLVHGjEDMIpGrN/shsGzh+cu/qFMMRaYXI4FpjXGH+EDUUphtog==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d804d878-7bac-482a-8364-0f9fb1fc002f",
+                            SecurityStamp = "9726947e-33c1-4f4d-aaff-a2012a465b84",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -249,6 +256,41 @@ namespace UsuarioAPP.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("UsuariosApi.Models.Usuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Cpf")
+                        .HasColumnType("text");
+
+                    b.Property<string>("DataNascimento")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Endereco")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("text");
+
+                    b.Property<int>("ResponsavelId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Telefone")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuario");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
