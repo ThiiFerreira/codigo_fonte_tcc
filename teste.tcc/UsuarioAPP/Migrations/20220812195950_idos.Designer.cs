@@ -2,49 +2,22 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UsuariosApi.Data;
 
 namespace UsuarioAPP.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    partial class UserDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220812195950_idos")]
+    partial class idos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.5");
-
-            modelBuilder.Entity("APP.Models.UsuarioAssistido", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Cpf")
-                        .HasColumnType("text");
-
-                    b.Property<string>("DataNascimento")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Endereco")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Nome")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Telefone")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Username")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UsuarioAssistido");
-                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
                 {
@@ -76,21 +49,21 @@ namespace UsuarioAPP.Migrations
                         new
                         {
                             Id = 9999,
-                            ConcurrencyStamp = "a8d3401e-b5ad-4cf8-b2d0-3066995c8b6b",
+                            ConcurrencyStamp = "7fa90dcb-e8d9-4150-b27d-e0ab059610ee",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = 9997,
-                            ConcurrencyStamp = "34264f18-fafd-49fe-80d8-4b4ef29cccbf",
+                            ConcurrencyStamp = "1358efae-a655-46c5-8f9c-b6bb4276dbda",
                             Name = "responsavel",
                             NormalizedName = "RESPONSAVEL"
                         },
                         new
                         {
                             Id = 9996,
-                            ConcurrencyStamp = "22994ed0-72ea-403e-a51c-26f6b1f6ebc6",
+                            ConcurrencyStamp = "5eed37b2-65f7-4460-8c80-fff26022845b",
                             Name = "idoso",
                             NormalizedName = "IDOSO"
                         });
@@ -187,15 +160,15 @@ namespace UsuarioAPP.Migrations
                         {
                             Id = 9999,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2891a630-b8ae-418a-a69a-2ba073af81a9",
+                            ConcurrencyStamp = "b18150a8-2ae8-4d3e-9059-9f79662488b1",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAELR8fK63CfGuVr+hMmhe0UzxqLO6Op1VrZkZks3vyv5b0UExQE7X0lFB4vUilu+4Gg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEa+zvHrOJwmMsZtxyc2h0TqhIK7dVoH3o8/+77PI95j3C01WxsCdoE59vcAOPa0cA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "18f47e7f-6b90-4d08-803a-46d5d70ec716",
+                            SecurityStamp = "741e4701-edaa-4d82-885d-39d2b86149af",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });

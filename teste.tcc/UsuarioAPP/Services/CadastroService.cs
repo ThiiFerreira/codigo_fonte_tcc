@@ -7,7 +7,6 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
-using UsuarioAPP.Services;
 using UsuariosApi.Data;
 using UsuariosApi.Data.Dtos.Usuario;
 using UsuariosApi.Data.Requests;
@@ -22,16 +21,14 @@ namespace UsuariosApi.Services
         private IMapper _mapper;
         private UserManager<IdentityUser<int>> _userManager;
         private RoleManager<IdentityRole<int>> _roleManager;
-        private BdAppTcc _bdAppTcc;
         private UserDbContext _usuarioService;
 
         public CadastroService(IMapper mapper,
-            UserManager<IdentityUser<int>> userManager, RoleManager<IdentityRole<int>> roleManager, BdAppTcc bdAppTcc, UserDbContext usuarioService)
+            UserManager<IdentityUser<int>> userManager, RoleManager<IdentityRole<int>> roleManager, UserDbContext usuarioService)
         {
             _mapper = mapper;
             _userManager = userManager;
             _roleManager = roleManager;
-            _bdAppTcc = bdAppTcc;
             _usuarioService = usuarioService;
         }
 

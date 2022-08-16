@@ -3218,9 +3218,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\thiag\\Documents\\Projetos\\tcc\\teste.tcc\\UsuarioAPP\\APP.csproj",
-      "projectName": "APP",
-      "projectPath": "C:\\Users\\thiag\\Documents\\Projetos\\tcc\\teste.tcc\\UsuarioAPP\\APP.csproj",
+      "projectUniqueName": "C:\\Users\\thiag\\Documents\\Projetos\\tcc\\teste.tcc\\UsuarioAPP\\UsuariosApi.csproj",
+      "projectName": "UsuariosApi",
+      "projectPath": "C:\\Users\\thiag\\Documents\\Projetos\\tcc\\teste.tcc\\UsuarioAPP\\UsuariosApi.csproj",
       "packagesPath": "C:\\Users\\thiag\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\thiag\\Documents\\Projetos\\tcc\\teste.tcc\\UsuarioAPP\\obj\\",
       "projectStyle": "PackageReference",

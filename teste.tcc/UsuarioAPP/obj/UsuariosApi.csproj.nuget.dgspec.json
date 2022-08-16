@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\thiag\\Downloads\\alura-csharp-4-projeto-Aula-3\\UsuariosApi\\UsuariosApi.csproj": {}
+    "C:\\Users\\thiag\\Documents\\Projetos\\tcc\\teste.tcc\\UsuarioAPP\\UsuariosApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\thiag\\Downloads\\alura-csharp-4-projeto-Aula-3\\UsuariosApi\\UsuariosApi.csproj": {
+    "C:\\Users\\thiag\\Documents\\Projetos\\tcc\\teste.tcc\\UsuarioAPP\\UsuariosApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\thiag\\Downloads\\alura-csharp-4-projeto-Aula-3\\UsuariosApi\\UsuariosApi.csproj",
+        "projectUniqueName": "C:\\Users\\thiag\\Documents\\Projetos\\tcc\\teste.tcc\\UsuarioAPP\\UsuariosApi.csproj",
         "projectName": "UsuariosApi",
-        "projectPath": "C:\\Users\\thiag\\Downloads\\alura-csharp-4-projeto-Aula-3\\UsuariosApi\\UsuariosApi.csproj",
+        "projectPath": "C:\\Users\\thiag\\Documents\\Projetos\\tcc\\teste.tcc\\UsuarioAPP\\UsuariosApi.csproj",
         "packagesPath": "C:\\Users\\thiag\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\thiag\\Downloads\\alura-csharp-4-projeto-Aula-3\\UsuariosApi\\obj\\",
+        "outputPath": "C:\\Users\\thiag\\Documents\\Projetos\\tcc\\teste.tcc\\UsuarioAPP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

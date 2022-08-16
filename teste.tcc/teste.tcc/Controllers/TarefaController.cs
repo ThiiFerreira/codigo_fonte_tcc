@@ -21,7 +21,7 @@ namespace teste.tcc.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "responsavel")]
         public IActionResult AdicionaTarefa([FromBody] CreateTarefaDto createTarefaDto)
         {
             ReadTarefaDto readTarefaDto = _tarefaService.AdicionaTarefa(createTarefaDto);
@@ -29,6 +29,7 @@ namespace teste.tcc.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "responsavel, idoso")]
         public IActionResult RecuperaTarefaPorId(int id)
         {
             var tarefa = _tarefaService.RecuperaTarefaPorId(id);
@@ -37,6 +38,7 @@ namespace teste.tcc.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "responsavel, idoso")]
         public IActionResult RecuperaTarefa()
         {
             List<ReadTarefaDto> listTarefa = _tarefaService.RecuperaTarefa();
@@ -44,6 +46,7 @@ namespace teste.tcc.Controllers
             return Ok(listTarefa);
         }
 
+        [Authorize(Roles = "responsavel")]
         [HttpPut("{id}")]
         public IActionResult AtualizaTarefa(int id, [FromBody] CreateTarefaDto createTarefaDto)
         {
@@ -52,6 +55,7 @@ namespace teste.tcc.Controllers
             return NoContent();
         }
 
+        [Authorize(Roles = "responsavel")]
         [HttpDelete("{id}")]
         public IActionResult DeletaTarefa(int id)
         {

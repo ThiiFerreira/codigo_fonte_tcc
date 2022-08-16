@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Y7iDSEZLyVSgbtvXZoVmZg80AnSCqQMshp82ad9GZGYMfFaLFpQsmk4SXexrDvjxUZkLAfsWgM+fhWOOkvTwKw==",
+  "dgSpecHash": "ABmOIfBafat7KcPPa4angS1TVvO50NCx/LZvr/hNiJuRvY6jAiyu5eOViC76/wosPg5qUddrdRkwNKmTossG8A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\thiag\\Documents\\Projetos\\tcc\\teste.tcc\\UsuarioAPP\\APP.csproj",
+  "projectFilePath": "C:\\Users\\thiag\\Documents\\Projetos\\tcc\\teste.tcc\\UsuarioAPP\\UsuariosApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thiag\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\thiag\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

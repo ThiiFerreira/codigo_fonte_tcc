@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using APP.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -51,6 +52,7 @@ namespace UsuariosApi.Data
         }
 
         public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<UsuarioAssistido> UsuarioAssistido { get; set; }
 
     }
 }
