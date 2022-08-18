@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UsuariosApi.Data;
 
 namespace UsuarioAPP.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    partial class UserDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220816170817_4")]
+    partial class _4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,21 +81,21 @@ namespace UsuarioAPP.Migrations
                         new
                         {
                             Id = 9999,
-                            ConcurrencyStamp = "a476db93-1416-43a0-9176-f2fa8ac284c2",
+                            ConcurrencyStamp = "b29e559c-bfa9-452f-b82f-ea18ec0912ba",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = 9997,
-                            ConcurrencyStamp = "b85a30c9-3841-4e6d-a9a8-eaaa9d128f8b",
+                            ConcurrencyStamp = "ba87e536-1192-4683-8352-3e0063b8fdf9",
                             Name = "responsavel",
                             NormalizedName = "RESPONSAVEL"
                         },
                         new
                         {
                             Id = 9996,
-                            ConcurrencyStamp = "4b953e0c-f5ab-474e-ba64-8b6af98ea74b",
+                            ConcurrencyStamp = "243a1007-c41e-4536-8f44-e2a9a96e8f9d",
                             Name = "idoso",
                             NormalizedName = "IDOSO"
                         });
@@ -190,15 +192,15 @@ namespace UsuarioAPP.Migrations
                         {
                             Id = 9999,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "126bac06-a5b1-4e14-85da-9d29181e6e86",
+                            ConcurrencyStamp = "58b261ab-1741-40f3-9917-4670deceb4a1",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAELz65rEuBNHRj8/wudKhBUOECzXwKaeFXnH9RYaKFDH6TQBBUZ5ZswATwRMMkCAPAg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGVxWg0haejZjUm7hTi8dUjvEAheSjzDjhitjKMAdWsmqsUdQgppXcRXxLwJ/O0xYg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9fdb9b2a-8f81-4706-89a9-1634dc54b12e",
+                            SecurityStamp = "e4db26ea-0e30-44eb-b404-50521dcbf91d",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -286,33 +288,6 @@ namespace UsuarioAPP.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("UsuariosApi.Models.Tarefa", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("DataFinal")
-                        .HasColumnType("text");
-
-                    b.Property<string>("DataInicio")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("IdosoId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ResponsavelId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tarefa");
                 });
 
             modelBuilder.Entity("UsuariosApi.Models.Usuario", b =>

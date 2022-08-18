@@ -4,22 +4,27 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using teste.tcc.data;
-using teste.tcc.data.Dtos.Tarefa;
-using teste.tcc.Models;
+using UsuariosApi.Data;
+using UsuariosApi.Data.Dtos.Tarefa;
+using UsuariosApi.Helpers;
+using UsuariosApi.Models;
 
-namespace teste.tcc.services
+namespace UsuariosApi.Services
 {
     public class TarefaService
     {
-        private AppDbContext _context;
+        private UserDbContext _context;
         private IMapper _mapper;
-        private int testeId = 10022;
+        private int _idUsuario;
+        private HelpersUsuario _helper = new HelpersUsuario();
+        private LoginService _loginService;
 
-        public TarefaService(AppDbContext context, IMapper mapper)
+        public TarefaService(UserDbContext context, IMapper mapper, LoginService loginService)
         {
             _context = context;
             _mapper = mapper;
+            _loginService = loginService;
+            _idUsuario = _loginService.Retorna();
         }
 
         public ReadTarefaDto AdicionaTarefa(CreateTarefaDto createTarefaDto)
@@ -32,7 +37,7 @@ namespace teste.tcc.services
 
         public ReadTarefaDto RecuperaTarefaPorId(int id)
         {
-            Tarefa tarefa = _context.Tarefa.FirstOrDefault(tarefa => tarefa.Id == id && tarefa.IdosoId == testeId);
+            Tarefa tarefa = _context.Tarefa.FirstOrDefault(tarefa => tarefa.Id == id && tarefa.IdosoId == _idUsuario);
             if (tarefa != null)
             {
                 return _mapper.Map<ReadTarefaDto>(tarefa);
@@ -42,7 +47,7 @@ namespace teste.tcc.services
 
         public List<ReadTarefaDto> RecuperaTarefa()
         {
-            List<Tarefa> list = _context.Tarefa.ToList();
+            List<Tarefa> list = _context.Tarefa.Where(tarefa => tarefa.IdosoId == _idUsuario).ToList();
 
             if (list != null)
             {

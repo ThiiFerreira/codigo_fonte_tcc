@@ -5,17 +5,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using teste.tcc.data.Dtos.Tarefa;
-using teste.tcc.Models;
-using teste.tcc.services;
+using UsuariosApi.Data.Dtos.Tarefa;
+using UsuariosApi.Services;
 
-namespace teste.tcc.Controllers
+namespace UsuariosApi.Controllers
 {
     [ApiController]
     [Route("{controller}")]
     public class TarefaController : ControllerBase
     {
-
         private TarefaService _tarefaService;
         public TarefaController(TarefaService tarefaService)
         {
@@ -31,17 +29,17 @@ namespace teste.tcc.Controllers
         }
 
         [HttpGet("{id}")]
-        //[Authorize(Roles = "responsavel, idoso")]
+        [Authorize(Roles = "responsavel, idoso")]
         public IActionResult RecuperaTarefaPorId(int id)
         {
-            
+
             var tarefa = _tarefaService.RecuperaTarefaPorId(id);
             if (tarefa == null) return NotFound("Tarefa não encontrada");
             return Ok(tarefa);
         }
 
         [HttpGet]
-        //[Authorize(Roles = "responsavel, idoso")]
+        [Authorize(Roles = "responsavel, idoso")]
         public IActionResult RecuperaTarefa()
         {
             List<ReadTarefaDto> listTarefa = _tarefaService.RecuperaTarefa();
@@ -49,7 +47,7 @@ namespace teste.tcc.Controllers
             return Ok(listTarefa);
         }
 
-        //[Authorize(Roles = "responsavel")]
+        [Authorize(Roles = "responsavel")]
         [HttpPut("{id}")]
         public IActionResult AtualizaTarefa(int id, [FromBody] CreateTarefaDto createTarefaDto)
         {
@@ -58,7 +56,7 @@ namespace teste.tcc.Controllers
             return NoContent();
         }
 
-        //[Authorize(Roles = "responsavel")]
+        [Authorize(Roles = "responsavel")]
         [HttpDelete("{id}")]
         public IActionResult DeletaTarefa(int id)
         {

@@ -32,5 +32,8 @@ namespace APP.Data.Dtos.UsuarioAssistido
 
         [Required]
         public string Endereco { get; set; }
+        
+        [Required]
+        public int ResponsavelId { get; set; }
     }
 }

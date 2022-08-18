@@ -43,9 +43,13 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[8.1.1, )"
+              "version": "[11.0.0, )"
             },
             "FluentResults": {
               "target": "Package",
@@ -54,6 +58,10 @@
             "MailKit": {
               "target": "Package",
               "version": "[2.14.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.11, )"
             },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",

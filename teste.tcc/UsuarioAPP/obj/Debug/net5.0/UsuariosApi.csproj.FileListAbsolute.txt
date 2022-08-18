@@ -122,3 +122,10 @@ C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\UsuarioAPP\obj\Debug\net5.0\scop
 C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\UsuarioAPP\obj\Debug\net5.0\UsuariosApi.RazorTargetAssemblyInfo.cache
 C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\UsuarioAPP\obj\Debug\net5.0\UsuariosApi.csproj.CopyComplete
 C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\UsuarioAPP\obj\Debug\net5.0\UsuariosApi.genruntimeconfig.cache
+C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\UsuarioAPP\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\UsuarioAPP\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\UsuarioAPP\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\UsuarioAPP\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\UsuarioAPP\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\UsuarioAPP\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\thiag\Documents\Projetos\tcc\teste.tcc\UsuarioAPP\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
