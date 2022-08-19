@@ -21,7 +21,7 @@ namespace UsuariosApi.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "responsavel")]
+        [Authorize(Roles = "responsavel")]
         public IActionResult AdicionaTarefa([FromBody] CreateTarefaDto createTarefaDto)
         {
             ReadTarefaDto readTarefaDto = _tarefaService.AdicionaTarefa(createTarefaDto);

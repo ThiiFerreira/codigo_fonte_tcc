@@ -16,10 +16,5 @@ namespace UsuariosApi.Data.Dtos.Tarefa
 
         public string DataFinal { get; set; }
 
-        [Required]
-        public int ResponsavelId { get; set; }
-
-        [Required]
-        public int IdosoId { get; set; }
     }
 }

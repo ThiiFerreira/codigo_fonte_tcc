@@ -37,7 +37,7 @@ namespace UsuariosApi.Services
                     .CreateToken(identityUser, _signInManager
                                 .UserManager.GetRolesAsync(identityUser).Result.FirstOrDefault());
                 _idUsuario = identityUser.Id;
-                Console.WriteLine(_idUsuario);
+                //Console.WriteLine(_idUsuario);
                 return Result.Ok().WithSuccess(token.Value);
             }
             return Result.Fail("Login falhou");
