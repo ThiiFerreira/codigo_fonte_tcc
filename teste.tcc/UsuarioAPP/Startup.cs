@@ -44,7 +44,8 @@ namespace UsuariosApi
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<UserDbContext>(options => options.UseMySQL(Configuration.GetConnectionString("UsuarioConnection")));
+            //services.AddDbContext<UserDbContext>(options => options.UseMySQL(Configuration.GetConnectionString("UsuarioConnection")));
+            services.AddDbContext<UserDbContext>(options => options.UseMySQL(Configuration.GetConnectionString("ConnDBNuvem")));
             services
                 .AddIdentity<IdentityUser<int>, IdentityRole<int>>(opt =>
                 {

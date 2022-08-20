@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UsuariosApi.Data;
 
-namespace UsuarioAPP.Migrations
+namespace UsuariosApi.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20220816170817_4")]
-    partial class _4
+    [Migration("20220819181635_update banco teste")]
+    partial class updatebancoteste
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -81,21 +81,21 @@ namespace UsuarioAPP.Migrations
                         new
                         {
                             Id = 9999,
-                            ConcurrencyStamp = "b29e559c-bfa9-452f-b82f-ea18ec0912ba",
+                            ConcurrencyStamp = "dfd475d2-52e9-429c-8891-e2e484a4e621",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = 9997,
-                            ConcurrencyStamp = "ba87e536-1192-4683-8352-3e0063b8fdf9",
+                            ConcurrencyStamp = "272fe04a-6e89-4b86-8983-5e9c25fb6acd",
                             Name = "responsavel",
                             NormalizedName = "RESPONSAVEL"
                         },
                         new
                         {
                             Id = 9996,
-                            ConcurrencyStamp = "243a1007-c41e-4536-8f44-e2a9a96e8f9d",
+                            ConcurrencyStamp = "a47a6928-d7d9-4f46-b348-4802a680a08d",
                             Name = "idoso",
                             NormalizedName = "IDOSO"
                         });
@@ -192,15 +192,15 @@ namespace UsuarioAPP.Migrations
                         {
                             Id = 9999,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "58b261ab-1741-40f3-9917-4670deceb4a1",
+                            ConcurrencyStamp = "bdda6760-9ef6-4cce-a263-7abd0772b35f",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGVxWg0haejZjUm7hTi8dUjvEAheSjzDjhitjKMAdWsmqsUdQgppXcRXxLwJ/O0xYg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFRmKs4/KsDzOSrbUHXCehARv1x5JgW6lcws1oEpZiiV0ymDKM/1K16SBr1QHaUy5g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e4db26ea-0e30-44eb-b404-50521dcbf91d",
+                            SecurityStamp = "94a14ace-911f-4cf6-8c14-a2e55798a4c5",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -288,6 +288,33 @@ namespace UsuarioAPP.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("UsuariosApi.Models.Tarefa", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("DataFinal")
+                        .HasColumnType("text");
+
+                    b.Property<string>("DataInicio")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("IdosoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ResponsavelId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tarefa");
                 });
 
             modelBuilder.Entity("UsuariosApi.Models.Usuario", b =>

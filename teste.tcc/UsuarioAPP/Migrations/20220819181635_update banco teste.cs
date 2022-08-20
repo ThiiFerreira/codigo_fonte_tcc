@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using MySql.EntityFrameworkCore.Metadata;
 
-namespace UsuarioAPP.Migrations
+namespace UsuariosApi.Migrations
 {
-    public partial class _1 : Migration
+    public partial class updatebancoteste : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -50,6 +50,23 @@ namespace UsuarioAPP.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Tarefa",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Descricao = table.Column<string>(type: "text", nullable: false),
+                    DataInicio = table.Column<string>(type: "text", nullable: true),
+                    DataFinal = table.Column<string>(type: "text", nullable: true),
+                    ResponsavelId = table.Column<int>(type: "int", nullable: false),
+                    IdosoId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tarefa", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Usuario",
                 columns: table => new
                 {
@@ -57,7 +74,6 @@ namespace UsuarioAPP.Migrations
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     Username = table.Column<string>(type: "text", nullable: true),
                     Email = table.Column<string>(type: "text", nullable: true),
-                    ResponsavelId = table.Column<int>(type: "int", nullable: false),
                     Nome = table.Column<string>(type: "text", nullable: true),
                     Cpf = table.Column<string>(type: "text", nullable: true),
                     DataNascimento = table.Column<string>(type: "text", nullable: true),
@@ -67,6 +83,25 @@ namespace UsuarioAPP.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Usuario", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UsuarioAssistido",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Username = table.Column<string>(type: "text", nullable: true),
+                    Nome = table.Column<string>(type: "text", nullable: true),
+                    Cpf = table.Column<string>(type: "text", nullable: true),
+                    DataNascimento = table.Column<string>(type: "text", nullable: true),
+                    Telefone = table.Column<string>(type: "text", nullable: true),
+                    Endereco = table.Column<string>(type: "text", nullable: true),
+                    ResponsavelId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UsuarioAssistido", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -180,15 +215,15 @@ namespace UsuarioAPP.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { 9999, "b120e8ba-6fe2-4bf7-9634-f3c2d1917f37", "admin", "ADMIN" },
-                    { 9997, "063dab63-306f-43dd-abfd-3b49d2d0615e", "responsavel", "RESPONSAVEL" },
-                    { 9996, "4a1d306d-3221-4b2d-80e5-3af973881ceb", "idoso", "IDOSO" }
+                    { 9999, "dfd475d2-52e9-429c-8891-e2e484a4e621", "admin", "ADMIN" },
+                    { 9997, "272fe04a-6e89-4b86-8983-5e9c25fb6acd", "responsavel", "RESPONSAVEL" },
+                    { 9996, "a47a6928-d7d9-4f46-b348-4802a680a08d", "idoso", "IDOSO" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 9999, 0, "3be30a0f-1e1b-4626-b6d3-8b2fa7e17817", "admin@admin.com", true, false, null, "ADMIN@ADMIN.COM", "ADMIN", "AQAAAAEAACcQAAAAEG3Rgm1OQqWbvg8pLVHGjEDMIpGrN/shsGzh+cu/qFMMRaYXI4FpjXGH+EDUUphtog==", null, false, "9726947e-33c1-4f4d-aaff-a2012a465b84", false, "admin" });
+                values: new object[] { 9999, 0, "bdda6760-9ef6-4cce-a263-7abd0772b35f", "admin@admin.com", true, false, null, "ADMIN@ADMIN.COM", "ADMIN", "AQAAAAEAACcQAAAAEFRmKs4/KsDzOSrbUHXCehARv1x5JgW6lcws1oEpZiiV0ymDKM/1K16SBr1QHaUy5g==", null, false, "94a14ace-911f-4cf6-8c14-a2e55798a4c5", false, "admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
@@ -251,7 +286,13 @@ namespace UsuarioAPP.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Tarefa");
+
+            migrationBuilder.DropTable(
                 name: "Usuario");
+
+            migrationBuilder.DropTable(
+                name: "UsuarioAssistido");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
