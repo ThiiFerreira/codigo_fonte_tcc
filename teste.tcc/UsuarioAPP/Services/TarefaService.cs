@@ -42,7 +42,7 @@ namespace UsuariosApi.Services
 
         public ReadTarefaDto RecuperaTarefaPorId(int id)
         {
-            Tarefa tarefa = _context.Tarefa.FirstOrDefault(tarefa => tarefa.Id == id && tarefa.IdosoId == _idUsuario);
+            Tarefa tarefa = _context.Tarefa.FirstOrDefault(tarefa => tarefa.Id == id && (tarefa.IdosoId == _idUsuario || tarefa.ResponsavelId == _idUsuario));
             if (tarefa != null)
             {
                 return _mapper.Map<ReadTarefaDto>(tarefa);
@@ -52,7 +52,7 @@ namespace UsuariosApi.Services
 
         public List<ReadTarefaDto> RecuperaTarefa()
         {
-            List<Tarefa> list = _context.Tarefa.Where(tarefa => tarefa.IdosoId == _idUsuario).ToList();
+            List<Tarefa> list = _context.Tarefa.Where(tarefa => (tarefa.IdosoId == _idUsuario || tarefa.ResponsavelId == _idUsuario)).ToList();
 
             if (list != null)
             {
@@ -63,7 +63,7 @@ namespace UsuariosApi.Services
 
         public Result AtualizaTarefa(int id, CreateTarefaDto createTarefaDto)
         {
-            Tarefa tarefa = _context.Tarefa.FirstOrDefault(tarefa => tarefa.Id == id);
+            Tarefa tarefa = _context.Tarefa.FirstOrDefault(tarefa => tarefa.Id == id && (tarefa.IdosoId == _idUsuario || tarefa.ResponsavelId == _idUsuario));
             if (tarefa == null)
             {
                 return Result.Fail("Tarefa não encontrada");
@@ -77,7 +77,7 @@ namespace UsuariosApi.Services
 
         public Result DeletaTarefa(int id)
         {
-            Tarefa tarefa = _context.Tarefa.FirstOrDefault(tarefa => tarefa.Id == id);
+            Tarefa tarefa = _context.Tarefa.FirstOrDefault(tarefa => tarefa.Id == id && (tarefa.IdosoId == _idUsuario || tarefa.ResponsavelId == _idUsuario));
             if (tarefa == null)
             {
                 return Result.Fail("Tarefa não encontrado");

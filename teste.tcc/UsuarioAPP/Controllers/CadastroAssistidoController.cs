@@ -1,6 +1,7 @@
 ﻿using APP.Data.Dtos.UsuarioAssistido;
 using APP.Services;
 using FluentResults;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace APP.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "responsavel")]
         public IActionResult CadastraAssistido(CreateUsuarioAssistido createDto)
         {
             Result resultado = _assistidoService.CadastraAssistido(createDto);

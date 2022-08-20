@@ -1,4 +1,5 @@
 using FluentResults;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace UsuariosApi.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public IActionResult CadastraUsuario(CreateUsuarioDto createDto)
         {
             Result resultado = _cadastroService.CadastraUsuario(createDto);
