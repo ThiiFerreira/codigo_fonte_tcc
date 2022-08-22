@@ -15,9 +15,11 @@ namespace UsuariosApi.Controllers
     public class TarefaController : ControllerBase
     {
         private TarefaService _tarefaService;
-        public TarefaController(TarefaService tarefaService)
+        private TarefaServiceArray  _tarefaServiceArray;
+        public TarefaController(TarefaService tarefaService, TarefaServiceArray tarefaServiceArray)
         {
             _tarefaService = tarefaService;
+            _tarefaServiceArray = tarefaServiceArray;
         }
 
         [HttpPost]
@@ -29,24 +31,23 @@ namespace UsuariosApi.Controllers
         }
 
         [HttpGet("{id}")]
-        [Authorize(Roles = "responsavel, idoso")]
+        //[Authorize(Roles = "responsavel, idoso")]
         public IActionResult RecuperaTarefaPorId(int id)
         {
 
-            var tarefa = _tarefaService.RecuperaTarefaPorId(id);
+            var tarefa = _tarefaServiceArray.RecuperaTarefaPorId(id);
             if (tarefa == null) return NotFound("Tarefa não encontrada");
             return Ok(tarefa);
         }
 
         [HttpGet]
-        [Authorize(Roles = "responsavel, idoso")]
+        //[Authorize(Roles = "responsavel, idoso")]
         public IActionResult RecuperaTarefa()
         {
-            List<ReadTarefaDto> listTarefa = _tarefaService.RecuperaTarefa();
+            List<ReadTarefaDto> listTarefa = _tarefaServiceArray.RecuperaTarefa();
             if (listTarefa == null) return NotFound();
             return Ok(listTarefa);
         }
-
         [Authorize(Roles = "responsavel")]
         [HttpPut("{id}")]
         public IActionResult AtualizaTarefa(int id, [FromBody] CreateTarefaDto createTarefaDto)
