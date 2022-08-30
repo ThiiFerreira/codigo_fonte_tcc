@@ -37,6 +37,9 @@ namespace APP.Services
                 var cpf = _usuarioService.UsuarioAssistido.FirstOrDefault(usuario => usuario.Cpf == createDto.Cpf);
                 if (cpf != null) return Result.Fail("Falha ao cadastra usuario assistido: CPF já existe");
 
+                var responsavel = _usuarioService.Usuario.FirstOrDefault(usuario => usuario.Id == createDto.ResponsavelId);
+                if (responsavel == null) return Result.Fail("Falha ao cadastra usuario assistido: Responsavel não existe");
+
                 IdentityUser<int> usuarioIdentity = _mapper.Map<IdentityUser<int>>(assistido);
                 resultadoIdentity = _userManager
                     .CreateAsync(usuarioIdentity, createDto.Password);
