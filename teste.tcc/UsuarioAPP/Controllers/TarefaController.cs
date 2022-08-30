@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using UsuariosApi.Data.Dtos.Tarefa;
 using UsuariosApi.Services;
@@ -31,25 +32,27 @@ namespace UsuariosApi.Controllers
         }
 
         [HttpGet("{id}")]
-        //[Authorize(Roles = "responsavel, idoso")]
+        [Authorize(Roles = "responsavel, idoso")]
         public IActionResult RecuperaTarefaPorId(int id)
         {
 
-            var tarefa = _tarefaServiceArray.RecuperaTarefaPorId(id);
+            //var tarefa = _tarefaServiceArray.RecuperaTarefaPorId(id);
+            var tarefa = _tarefaService.RecuperaTarefaPorId(id);
             if (tarefa == null) return NotFound("Tarefa não encontrada");
             return Ok(tarefa);
         }
 
         [HttpGet]
-        //[Authorize(Roles = "responsavel, idoso")]
+        [Authorize(Roles = "responsavel, idoso")]
         public IActionResult RecuperaTarefa()
         {
-            List<ReadTarefaDto> listTarefa = _tarefaServiceArray.RecuperaTarefa();
+            //List<ReadTarefaDto> listTarefa = _tarefaServiceArray.RecuperaTarefa();
+            List<ReadTarefaDto> listTarefa = _tarefaService.RecuperaTarefa();
             if (listTarefa == null) return NotFound();
             return Ok(listTarefa);
         }
-        [Authorize(Roles = "responsavel")]
         [HttpPut("{id}")]
+        [Authorize(Roles = "responsavel")]
         public IActionResult AtualizaTarefa(int id, [FromBody] CreateTarefaDto createTarefaDto)
         {
             Result resultado = _tarefaService.AtualizaTarefa(id, createTarefaDto);
@@ -57,8 +60,8 @@ namespace UsuariosApi.Controllers
             return NoContent();
         }
 
-        [Authorize(Roles = "responsavel")]
         [HttpDelete("{id}")]
+        [Authorize(Roles = "responsavel")]
         public IActionResult DeletaTarefa(int id)
         {
             Result resultado = _tarefaService.DeletaTarefa(id);

@@ -26,7 +26,7 @@ namespace UsuariosApi.Services
             _context = context;
             _mapper = mapper;
             _loginService = loginService;
-            _idUsuario = _loginService.Retorna();
+            _idUsuario = _helper.RetornarIdUsuario(_loginService.Retorna());
             _assistido = _context.UsuarioAssistido.FirstOrDefault(assistido => assistido.ResponsavelId == _idUsuario);
         }
 

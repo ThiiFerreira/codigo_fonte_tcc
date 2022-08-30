@@ -5,6 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using UsuariosApi.Data.Dtos.Tarefa;
 using UsuariosApi.Models;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
 
 namespace UsuariosApi.Services
 {
@@ -92,7 +95,6 @@ namespace UsuariosApi.Services
                 return _mapper.Map<List<ReadTarefaDto>>(listTarefa);
             }
             return null;
-        }
-    
+        }    
     }
 }
