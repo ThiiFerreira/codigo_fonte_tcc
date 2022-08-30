@@ -37,6 +37,8 @@ namespace UsuariosApi.Services
             tarefa.IdosoId = _assistido.Id;
             _context.Tarefa.Add(tarefa);
             _context.SaveChanges();
+            Console.WriteLine(createTarefaDto.DataInicio);
+            Console.WriteLine(createTarefaDto.DataFinal);
             return _mapper.Map<ReadTarefaDto>(tarefa);
         }
 

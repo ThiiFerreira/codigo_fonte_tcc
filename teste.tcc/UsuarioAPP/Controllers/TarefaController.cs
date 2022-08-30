@@ -35,7 +35,6 @@ namespace UsuariosApi.Controllers
         [Authorize(Roles = "responsavel, idoso")]
         public IActionResult RecuperaTarefaPorId(int id)
         {
-
             //var tarefa = _tarefaServiceArray.RecuperaTarefaPorId(id);
             var tarefa = _tarefaService.RecuperaTarefaPorId(id);
             if (tarefa == null) return NotFound("Tarefa não encontrada");

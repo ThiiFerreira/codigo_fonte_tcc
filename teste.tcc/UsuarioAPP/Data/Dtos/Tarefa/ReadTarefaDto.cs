@@ -8,11 +8,7 @@ namespace UsuariosApi.Data.Dtos.Tarefa
 {
     public class ReadTarefaDto
     {
-        [Key]
-        [Required]
         public int Id { get; set; }
-
-        [Required]
 
         public string Descricao { get; set; }
 
@@ -20,10 +16,8 @@ namespace UsuariosApi.Data.Dtos.Tarefa
 
         public string DataFinal { get; set; }
 
-        [Required]
         public int ResponsavelId { get; set; }
 
-        [Required]
         public int IdosoId { get; set; }
     }
 }
