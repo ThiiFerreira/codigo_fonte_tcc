@@ -7,6 +7,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using UsuariosApi.Data.Dtos.Tarefa;
+using UsuariosApi.Helpers;
 using UsuariosApi.Services;
 
 namespace UsuariosApi.Controllers
@@ -27,7 +28,11 @@ namespace UsuariosApi.Controllers
         [Authorize(Roles = "responsavel")]
         public IActionResult AdicionaTarefa([FromBody] CreateTarefaDto createTarefaDto)
         {
-            ReadTarefaDto readTarefaDto = _tarefaService.AdicionaTarefa(createTarefaDto);
+            string token = Request.Headers["Authorization"];
+            string subToken = token.Substring(7);
+            var usuarioId = new HelpersUsuario().RetornarIdUsuario(subToken);
+
+            ReadTarefaDto readTarefaDto = _tarefaService.AdicionaTarefa(createTarefaDto, usuarioId);
             return CreatedAtAction(nameof(RecuperaTarefaPorId), new { id = readTarefaDto.Id }, readTarefaDto);
         }
 
@@ -35,8 +40,11 @@ namespace UsuariosApi.Controllers
         [Authorize(Roles = "responsavel, idoso")]
         public IActionResult RecuperaTarefaPorId(int id)
         {
+            string token = Request.Headers["Authorization"];
+            string subToken = token.Substring(7);
+            var usuarioId = new HelpersUsuario().RetornarIdUsuario(subToken);
             //var tarefa = _tarefaServiceArray.RecuperaTarefaPorId(id);
-            var tarefa = _tarefaService.RecuperaTarefaPorId(id);
+            var tarefa = _tarefaService.RecuperaTarefaPorId(id, usuarioId);
             if (tarefa == null) return NotFound("Tarefa não encontrada");
             return Ok(tarefa);
         }
@@ -45,8 +53,12 @@ namespace UsuariosApi.Controllers
         [Authorize(Roles = "responsavel, idoso")]
         public IActionResult RecuperaTarefa()
         {
+            string token = Request.Headers["Authorization"];
+            string subToken = token.Substring(7);
+            var usuarioId = new HelpersUsuario().RetornarIdUsuario(subToken);
+
             //List<ReadTarefaDto> listTarefa = _tarefaServiceArray.RecuperaTarefa();
-            List<ReadTarefaDto> listTarefa = _tarefaService.RecuperaTarefa();
+            List<ReadTarefaDto> listTarefa = _tarefaService.RecuperaTarefa(usuarioId);
             if (listTarefa == null) return NotFound();
             return Ok(listTarefa);
         }
@@ -54,7 +66,11 @@ namespace UsuariosApi.Controllers
         [Authorize(Roles = "responsavel")]
         public IActionResult AtualizaTarefa(int id, [FromBody] CreateTarefaDto createTarefaDto)
         {
-            Result resultado = _tarefaService.AtualizaTarefa(id, createTarefaDto);
+            string token = Request.Headers["Authorization"];
+            string subToken = token.Substring(7);
+            var usuarioId = new HelpersUsuario().RetornarIdUsuario(subToken);
+
+            Result resultado = _tarefaService.AtualizaTarefa(id, createTarefaDto, usuarioId);
             if (resultado.IsFailed) return NotFound();
             return NoContent();
         }
@@ -63,7 +79,11 @@ namespace UsuariosApi.Controllers
         [Authorize(Roles = "responsavel")]
         public IActionResult DeletaTarefa(int id)
         {
-            Result resultado = _tarefaService.DeletaTarefa(id);
+            string token = Request.Headers["Authorization"];
+            string subToken = token.Substring(7);
+            var usuarioId = new HelpersUsuario().RetornarIdUsuario(subToken);
+
+            Result resultado = _tarefaService.DeletaTarefa(id, usuarioId);
             if (resultado.IsFailed) return NotFound();
             return NoContent();
         }

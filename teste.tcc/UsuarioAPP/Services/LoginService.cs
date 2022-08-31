@@ -13,10 +13,6 @@ namespace UsuariosApi.Services
     {
         private SignInManager<IdentityUser<int>> _signInManager;
         private TokenService _tokenService;
-        private static int _idUsuario;
-        private static string _token;
-
-
         public LoginService(SignInManager<IdentityUser<int>> signInManager,
             TokenService tokenService)
         {
@@ -38,8 +34,6 @@ namespace UsuariosApi.Services
                 Token token = _tokenService
                     .CreateToken(identityUser, _signInManager
                                 .UserManager.GetRolesAsync(identityUser).Result.FirstOrDefault());
-                _idUsuario = identityUser.Id;
-                _token = token.Value;
                 return Result.Ok().WithSuccess(token.Value);
             }
             return Result.Fail("Login falhou");
@@ -79,9 +73,5 @@ namespace UsuariosApi.Services
                             .FirstOrDefault(u => u.NormalizedEmail == email.ToUpper());
         }
 
-        public string Retorna()
-        {
-            return _token;
-        }
     }
 }

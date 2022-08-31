@@ -16,35 +16,27 @@ namespace UsuariosApi.Services
     {
         private UserDbContext _context;
         private IMapper _mapper;
-        private int _idUsuario;
-        private UsuarioAssistido _assistido;
-        private HelpersUsuario _helper = new HelpersUsuario();
-        private LoginService _loginService;
         
-        public TarefaService(UserDbContext context, IMapper mapper, LoginService loginService)
+        public TarefaService(UserDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
-            _loginService = loginService;
-            _idUsuario = _helper.RetornarIdUsuario(_loginService.Retorna());
-            _assistido = _context.UsuarioAssistido.FirstOrDefault(assistido => assistido.ResponsavelId == _idUsuario);
         }
 
-        public ReadTarefaDto AdicionaTarefa(CreateTarefaDto createTarefaDto)
+        public ReadTarefaDto AdicionaTarefa(CreateTarefaDto createTarefaDto, int usuarioId)
         {
+            var _assistido = _context.UsuarioAssistido.FirstOrDefault(assistido => assistido.ResponsavelId == usuarioId);
             var tarefa = _mapper.Map<Tarefa>(createTarefaDto);
-            tarefa.ResponsavelId = _idUsuario;
+            tarefa.ResponsavelId = usuarioId;
             tarefa.IdosoId = _assistido.Id;
             _context.Tarefa.Add(tarefa);
             _context.SaveChanges();
-            Console.WriteLine(createTarefaDto.DataInicio);
-            Console.WriteLine(createTarefaDto.DataFinal);
             return _mapper.Map<ReadTarefaDto>(tarefa);
         }
 
-        public ReadTarefaDto RecuperaTarefaPorId(int id)
+        public ReadTarefaDto RecuperaTarefaPorId(int id, int usuarioId)
         {
-            Tarefa tarefa = _context.Tarefa.FirstOrDefault(tarefa => tarefa.Id == id && (tarefa.IdosoId == _idUsuario || tarefa.ResponsavelId == _idUsuario));
+            Tarefa tarefa = _context.Tarefa.FirstOrDefault(tarefa => tarefa.Id == id && (tarefa.IdosoId == usuarioId || tarefa.ResponsavelId == usuarioId));
             if (tarefa != null)
             {
                 return _mapper.Map<ReadTarefaDto>(tarefa);
@@ -52,9 +44,9 @@ namespace UsuariosApi.Services
             return null;
         }
 
-        public List<ReadTarefaDto> RecuperaTarefa()
+        public List<ReadTarefaDto> RecuperaTarefa(int usuarioId)
         {
-            List<Tarefa> list = _context.Tarefa.Where(tarefa => (tarefa.IdosoId == _idUsuario || tarefa.ResponsavelId == _idUsuario)).ToList();
+            List<Tarefa> list = _context.Tarefa.Where(tarefa => (tarefa.IdosoId == usuarioId || tarefa.ResponsavelId == usuarioId)).ToList();
 
             if (list != null)
             {
@@ -63,9 +55,9 @@ namespace UsuariosApi.Services
             return null;
         }
 
-        public Result AtualizaTarefa(int id, CreateTarefaDto createTarefaDto)
+        public Result AtualizaTarefa(int id, CreateTarefaDto createTarefaDto, int usuarioId)
         {
-            Tarefa tarefa = _context.Tarefa.FirstOrDefault(tarefa => tarefa.Id == id && (tarefa.IdosoId == _idUsuario || tarefa.ResponsavelId == _idUsuario));
+            Tarefa tarefa = _context.Tarefa.FirstOrDefault(tarefa => tarefa.Id == id && (tarefa.IdosoId == usuarioId || tarefa.ResponsavelId == usuarioId));
             if (tarefa == null)
             {
                 return Result.Fail("Tarefa não encontrada");
@@ -77,9 +69,9 @@ namespace UsuariosApi.Services
 
         }
 
-        public Result DeletaTarefa(int id)
+        public Result DeletaTarefa(int id, int usuarioId)
         {
-            Tarefa tarefa = _context.Tarefa.FirstOrDefault(tarefa => tarefa.Id == id && (tarefa.IdosoId == _idUsuario || tarefa.ResponsavelId == _idUsuario));
+            Tarefa tarefa = _context.Tarefa.FirstOrDefault(tarefa => tarefa.Id == id &&  tarefa.ResponsavelId == usuarioId);
             if (tarefa == null)
             {
                 return Result.Fail("Tarefa não encontrado");
