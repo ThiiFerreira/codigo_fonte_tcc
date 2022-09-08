@@ -69,7 +69,7 @@ namespace UsuariosApi.Services
                 return Result.Fail(e.Message);
             }
 
-            return Result.Fail("Falha ao cadastrar usuário " + resultadoIdentity.Result.ToString());
+            return Result.Fail("Falha ao cadastrar usuário : A senha deve conter pelo menos UMA LETRA MAIÚSCULA, UM NUMERO E UM CARACTER ESPECIAL");
 
         }
 
