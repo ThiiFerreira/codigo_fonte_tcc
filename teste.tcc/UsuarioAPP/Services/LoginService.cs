@@ -13,11 +13,14 @@ namespace UsuariosApi.Services
     {
         private SignInManager<IdentityUser<int>> _signInManager;
         private TokenService _tokenService;
+        private EmailService _emailService;
+
         public LoginService(SignInManager<IdentityUser<int>> signInManager,
-            TokenService tokenService)
+            TokenService tokenService, EmailService emailService)
         {
             _signInManager = signInManager;
             _tokenService = tokenService;
+            _emailService = emailService;
         }
 
         public Result LogaUsuario(LoginRequest request)
@@ -59,6 +62,10 @@ namespace UsuariosApi.Services
             {
                 string codigoDeRecuperacao = _signInManager
                     .UserManager.GeneratePasswordResetTokenAsync(identityUser).Result;
+
+                _emailService.enviarEmailResetSenha(new[] {identityUser.Email}, "Reset Senha - EQUIPE AMAAI",
+                    request.CodigoVerificacao);
+
                 return Result.Ok().WithSuccess(codigoDeRecuperacao);
             }
 

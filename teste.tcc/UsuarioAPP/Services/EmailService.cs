@@ -1,6 +1,7 @@
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Configuration;
 using MimeKit;
+using System;
 using UsuariosApi.Models;
 
 namespace UsuariosApi.Services
@@ -15,37 +16,37 @@ namespace UsuariosApi.Services
             _configuration = configuration;
         }
 
-        public void EnviarEmail(string[] destinatario, string assunto,
-            int usuarioId, string code)
+        public void EnviarEmail(string[] destinatario, string assunto, int code)
         {
             Mensagem mensagem = new Mensagem(destinatario,
-                assunto, usuarioId, code);
+                assunto, code);
+            var mensagemDeEmail = CriaCorpoDoEmail(mensagem);
+            Enviar(mensagemDeEmail);
+        }
+        public void enviarEmailResetSenha(string[] destinatario, string assunto, int code)
+        {
+            Mensagem mensagem = new Mensagem(destinatario,
+                assunto, code);
             var mensagemDeEmail = CriaCorpoDoEmail(mensagem);
             Enviar(mensagemDeEmail);
         }
 
         private void Enviar(MimeMessage mensagemDeEmail)
         {
-            using (var client = new SmtpClient())
+            using var client = new SmtpClient();
+            try
             {
-                try
-                {
-                    client.Connect(_configuration.GetValue<string>("EmailSettings:SmtpServer"),
-                        _configuration.GetValue<int>("EmailSettings:Port"), true);
-                    client.AuthenticationMechanisms.Remove("XOUATH2");
-                    client.Authenticate(_configuration.GetValue<string>("EmailSettings:From"),
-                        _configuration.GetValue<string>("EmailSettings:Password"));
-                    client.Send(mensagemDeEmail);
-                }
-                catch
-                {
-                    throw;
-                }
-                finally
-                {
-                    client.Disconnect(true);
-                    client.Dispose();
-                }
+                client.Connect("smtp.gmail.com",465, true);
+                client.AuthenticationMechanisms.Remove("XOUATH2");
+                client.Authenticate("equipeamaai@gmail.com",
+                    "ajxmhbglhxwpecln");
+                client.Send(mensagemDeEmail);
+            }
+            catch { throw; }
+            finally
+            {
+                client.Disconnect(true);
+                client.Dispose();
             }
         }
 

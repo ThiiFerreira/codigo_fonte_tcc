@@ -10,5 +10,7 @@ namespace UsuariosApi.Data.Requests
     {
         [Required]
         public string Email { get; set; }
+
+        public int CodigoVerificacao { get; set; }
     }
 }
